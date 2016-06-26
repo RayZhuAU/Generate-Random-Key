@@ -9,11 +9,24 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var GenerateRandomKey: UIButton!
     @IBOutlet weak var KeyString: UILabel!
     @IBOutlet weak var CharacterNumber: UITextField!
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        CharacterNumber.resignFirstResponder()
+//        return true;
+//    }
+//    func dismissKeyboard(){
+//        CharacterNumber.resignFirstResponder()
+//    }
     
     
     @IBAction func GenerateRandomKey(sender: UIButton) {
@@ -22,7 +35,7 @@ class ViewController: UIViewController {
             KeyString.text = "Invalid Number"
             return
         }
-        if numberOfCharacters <= 5{
+        if numberOfCharacters <= 1100000{
             let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             let randomString : NSMutableString = NSMutableString(capacity: numberOfCharacters)
             for (var i=0; i < numberOfCharacters; i++){
@@ -38,18 +51,15 @@ class ViewController: UIViewController {
             KeyString.text = "Too many characters"
             return
         }
-
-        
-        
-
-        
         
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        CharacterNumber.delegate = self
         GenerateRandomKey.titleLabel?.textAlignment = NSTextAlignment.Center
+//        self.view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard)))
     }
 
     override func didReceiveMemoryWarning() {

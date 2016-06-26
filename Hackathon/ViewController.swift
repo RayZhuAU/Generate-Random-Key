@@ -15,20 +15,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var KeyString: UILabel!
     @IBOutlet weak var CharacterNumber: UITextField!
     
+    
     @IBAction func GenerateRandomKey(sender: UIButton) {
-        guard let numberOfCharacters = Int(CharacterNumber.text!) else{
+        guard let numberOfCharacters = Int(CharacterNumber.text!)  else{
             CharacterNumber.text = ""
+            KeyString.text = "Invalid Number"
             return
         }
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let randomString : NSMutableString = NSMutableString(capacity: numberOfCharacters)
-        for (var i=0; i < numberOfCharacters; i++){
-            let length = UInt32 (letters.length)
-            let rand = arc4random_uniform(length)
-            randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        if numberOfCharacters <= 5{
+            let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            let randomString : NSMutableString = NSMutableString(capacity: numberOfCharacters)
+            for (var i=0; i < numberOfCharacters; i++){
+                let length = UInt32 (letters.length)
+                let rand = arc4random_uniform(length)
+                randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+            }
+            KeyString.text = randomString as String
+            UIPasteboard.generalPasteboard().string = randomString as String
         }
-        KeyString.text = randomString as String
-        UIPasteboard.generalPasteboard().string = randomString as String
+        else{
+            CharacterNumber.text = ""
+            KeyString.text = "Too many characters"
+            return
+        }
+
         
         
 

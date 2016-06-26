@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8x-zE-qwk">
-                                <rect key="frame" x="308.5" y="140" width="85" height="20.5"/>
+                                <rect key="frame" x="285" y="140" width="85" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="f0w-7V-n4v"/>
                                 </constraints>
@@ -29,16 +29,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C2J-hs-bs8">
-                                <rect key="frame" x="200.5" y="135" width="97" height="30"/>
+                                <rect key="frame" x="224" y="135" width="50" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="jea-Cs-aQJ"/>
+                                    <constraint firstAttribute="width" constant="50" id="jea-Cs-aQJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9n-wH-0Cd">
-                                <rect key="frame" x="0.0" y="246" width="600" height="21"/>
+                                <rect key="frame" x="0.0" y="238.5" width="600" height="63"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="i03-dA-v1i"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,10 +73,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v9n-wH-0Cd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="6/7" id="5Be-bF-JkD"/>
+                            <constraint firstItem="I8x-zE-qwk" firstAttribute="leading" secondItem="C2J-hs-bs8" secondAttribute="trailing" constant="11" id="3fa-71-ccB"/>
+                            <constraint firstItem="v9n-wH-0Cd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="5Be-bF-JkD"/>
+                            <constraint firstItem="I8x-zE-qwk" firstAttribute="leading" secondItem="C2J-hs-bs8" secondAttribute="trailing" constant="11" id="7S9-yA-4Xv"/>
                             <constraint firstItem="v9n-wH-0Cd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D3v-KP-Oz8"/>
                             <constraint firstItem="pKR-l2-pQb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ikj-PZ-EAp"/>
                             <constraint firstItem="pKR-l2-pQb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="57" id="RM1-hO-qbL"/>
+                            <constraint firstItem="C2J-hs-bs8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.83" id="TJB-2q-t4B"/>
                             <constraint firstItem="C2J-hs-bs8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.83" id="UlD-Yz-hBO"/>
                             <constraint firstItem="I8x-zE-qwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.17" id="dp5-2N-25V"/>
                             <constraint firstItem="C2J-hs-bs8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1/2" id="j0J-kK-ZUE"/>
@@ -81,6 +87,12 @@
                             <constraint firstItem="pKR-l2-pQb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="tGg-c8-NNW"/>
                             <constraint firstItem="I8x-zE-qwk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1/2" id="yoc-sQ-g9y"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UlD-Yz-hBO"/>
+                                <exclude reference="dp5-2N-25V"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="CharacterNumber" destination="C2J-hs-bs8" id="mp7-7k-tAt"/>
